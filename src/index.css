@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────────────────────────────── Custom Cursor ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ───────────────────────────────── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #090909; }
+::-webkit-scrollbar-thumb { background: #C8102E; border-radius: 2px; }
+body { scrollbar-width: thin; scrollbar-color: #C8102E #090909; }
+html, body { overscroll-behavior-y: none; }
+
+/* ───────────────────────────────── Base ── */
+html { scroll-behavior: smooth; }
+
+@layer base {
+  h1, h2, h3 { font-family: 'Cinzel', serif; letter-spacing: 0.02em; }
+  body { background-color: #090909; color: #F5F5F5; }
+}
+
+/* ───────────────────────────────── Components ── */
+@layer components {
+  .rh-card {
+    @apply bg-rh-surface border border-rh-border rounded-2xl overflow-hidden relative;
+  }
+  .rh-glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+  .rh-btn-primary {
+    @apply bg-rh-accent text-white font-sans-display font-bold uppercase tracking-widest 
+           px-8 py-4 rounded-full transition-all duration-300 
+           hover:bg-rh-accent2 hover:shadow-glow-red hover:-translate-y-0.5 
+           active:scale-95;
+  }
+  .rh-btn-ghost {
+    @apply border border-white/20 text-white font-sans-display font-bold uppercase tracking-widest
+           px-8 py-4 rounded-full transition-all duration-300
+           hover:border-white hover:bg-white hover:text-black
+           active:scale-95;
+  }
+  .rh-input {
+    @apply w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5
+           text-white placeholder:text-white/30 font-body text-sm
+           focus:outline-none focus:border-rh-accent/60 focus:bg-white/[0.08]
+           transition-all duration-300;
+  }
+  .rh-label {
+    @apply block text-xs font-sans-display uppercase tracking-widest text-white/50 mb-2;
+  }
+  .section-tag {
+    @apply inline-flex items-center gap-2 text-rh-accent font-sans-display text-xs 
+           uppercase tracking-[0.2em] font-bold mb-4;
+  }
+  .section-title {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight;
+  }
+  .accent-line {
+    @apply w-12 h-0.5 bg-rh-accent inline-block;
+  }
+}
+
+/* ───────────────────────────────── Utilities ── */
+@layer utilities {
+  .text-muted { color: rgba(255,255,255,0.45); }
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+  .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .clip-hero { clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%); }
+}
+
+/* ───────────────────────────────── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-up    { animation: fadeUp 0.7s ease forwards; }
+.animate-fade-in    { animation: fadeIn 0.5s ease forwards; }
+.animate-slide-left { animation: slideInLeft 0.6s ease forwards; }
+.animate-scale-in   { animation: scaleIn 0.5s ease forwards; }
+
+/* ───────────────────────────────── Lightbox ── */
+.lightbox-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.95);
+  display: flex; align-items: center; justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
+/* ───────────────────────────────── Portfolio Filters ── */
+.filter-btn {
+  @apply px-5 py-2 rounded-full text-xs font-sans-display uppercase tracking-widest 
+         border border-white/10 text-white/50 transition-all duration-300
+         hover:border-white/30 hover:text-white;
+}
+.filter-btn.active {
+  @apply bg-rh-accent border-rh-accent text-white shadow-glow-red-sm;
+}
+
+/* ───────────────────────────────── Red Glow Divider ── */
+.red-divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, #C8102E, transparent);
+}
+
+/* ───────────────────────────────── Ticker Tape ── */
+.ticker-inner {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 25s linear infinite;
+}
