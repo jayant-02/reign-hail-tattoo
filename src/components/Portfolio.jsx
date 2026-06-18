@@ -7,7 +7,7 @@ import Lightbox from './Lightbox';
 const ALL_IMAGES = [
   {
     id: 1,
-    src: '/images/portfolio-1.jpg',
+    src: `${import.meta.env.BASE_URL}images/portfolio-1.jpg`,
     alt: 'Hyper-realistic 3D lion portrait tattoo on forearm',
     style: 'Realism',
     artist: 'Marcus Reid',
@@ -16,7 +16,7 @@ const ALL_IMAGES = [
   },
   {
     id: 2,
-    src: '/images/portfolio-2.jpg',
+    src: `${import.meta.env.BASE_URL}images/portfolio-2.jpg`,
     alt: 'Fine line botanical floral tattoo – roses and ferns',
     style: 'Fine Line',
     artist: 'Sofia Vega',
@@ -25,7 +25,7 @@ const ALL_IMAGES = [
   },
   {
     id: 3,
-    src: '/images/portfolio-3.jpg',
+    src: `${import.meta.env.BASE_URL}images/portfolio-3.jpg`,
     alt: 'Geometric mandala blackwork tattoo on shoulder',
     style: 'Blackwork',
     artist: 'Jay Okafor',

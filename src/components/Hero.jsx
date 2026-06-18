@@ -60,7 +60,7 @@ export default function Hero() {
       {/* ── Background Image ── */}
       <div className="absolute inset-0">
         <img
-          src="/images/hero-bg.jpg"
+          src={`${import.meta.env.BASE_URL}images/hero-bg.jpg`}
           alt="Reign & Hail Tattoo Studio interior"
           className="w-full h-full object-cover object-center scale-105"
           style={{ filter: 'brightness(0.35) saturate(0.8)' }}
